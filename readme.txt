@@ -1,9 +1,7 @@
 === Safe Redirect Manager ===
 Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, VentureBeat, jeffpaul
 Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects, redirects
-Requires at least: 5.7
-Tested up to:      6.4
-Requires PHP:      7.4
+Tested up to:      6.5
 Stable tag:        2.1.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html

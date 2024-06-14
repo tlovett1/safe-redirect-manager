@@ -19,7 +19,7 @@
 				var forceHttps = $('.srm_redirect_rule_force_https', postRow).text();
 
 				$('select[name="srm_redirect_rule_status_code"]', editRow).val(statusCode);
-				if ('✓' === forceHttps) {
+				if ('x' !== forceHttps) {
 					$('input[name="srm_redirect_rule_force_https"]', editRow).prop('checked', true);
 				}
 			}

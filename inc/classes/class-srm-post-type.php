@@ -440,7 +440,7 @@ class SRM_Post_Type {
 		if ( 'srm_redirect_rule_status_code' === $column_name ) :
 			wp_nonce_field( 'srm-save-redirect-ajax-meta', 'srm_redirect_ajax_nonce' );
 			?>
-			<fieldset class="inline-edit-col-right">
+			<fieldset class="inline-edit-col-right margin-top-0">
 				<div class="inline-edit-col">
 					<div class="inline-edit-group wp-clearfix">
 						<label class="inline-edit-status alignleft">
@@ -460,7 +460,7 @@ class SRM_Post_Type {
 
 		if ( 'srm_redirect_rule_force_https' === $column_name ) :
 			?>
-			<fieldset class="inline-edit-col-right">
+			<fieldset class="inline-edit-col-right margin-top-0">
 				<div class="inline-edit-col">
 					<div class="inline-edit-group wp-clearfix">
 						<label class="inline-edit-status alignleft">
@@ -799,9 +799,9 @@ class SRM_Post_Type {
 	 */
 	public function load_resources() {
 		if ( 'redirect_rule' === get_post_type() ) {
-			wp_enqueue_style( 'redirectjs', plugin_dir_url( 'safe-redirect-manager/safe-redirect-manager.php' ) . 'assets/css/redirect.css', array(), SRM_VERSION );
-			wp_enqueue_script( 'redirectjs', plugin_dir_url( 'safe-redirect-manager/safe-redirect-manager.php' ) . 'assets/js/redirect.js', array( 'jquery' ), SRM_VERSION );
-			wp_enqueue_script( 'quick-bulk-editjs', plugin_dir_url( 'safe-redirect-manager/safe-redirect-manager.php' ) . 'assets/js/quick-bulk-edit.js', array( 'jquery', 'inline-edit-post' ), SRM_VERSION );
+			wp_enqueue_style( 'redirectjs', plugin_dir_url( __FILE__ ) . '../../assets/css/redirect.css', array(), SRM_VERSION );
+			wp_enqueue_script( 'redirectjs', plugin_dir_url( __FILE__ ) . '../../assets/js/redirect.js', array( 'jquery' ), SRM_VERSION );
+			wp_enqueue_script( 'quick-bulk-editjs', plugin_dir_url( __FILE__ ) . '../../assets/js/quick-bulk-edit.js', array( 'jquery', 'inline-edit-post' ), SRM_VERSION );
 			wp_localize_script(
 				'redirectjs',
 				'redirectValidation',

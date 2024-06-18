@@ -58,7 +58,7 @@ class SRM_WP_CLI extends WP_CLI_Command {
 
 		$redirects = srm_get_redirects( array( 'post_status' => 'any' ), true );
 		$redirects = array_map(
-			function( &$item ) use ( $assoc_args ) {
+			function( $item ) use ( $assoc_args ) {
 				if ( 'table' === $assoc_args['format'] ) {
 					$item['enable_regex'] = $item['enable_regex'] ? 'true' : 'false';
 				} else {

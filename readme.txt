@@ -1,9 +1,7 @@
 === Safe Redirect Manager ===
 Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, VentureBeat, jeffpaul
 Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects, redirects
-Requires at least: 5.7
-Tested up to:      6.4
-Requires PHP:      7.4
+Tested up to:      6.5
 Stable tag:        2.1.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +48,11 @@ This should be a path (i.e. `/test`) or a URL (i.e. `http://example.com/wp/test`
 * Developers can use `srm_additional_status_codes` filter to add status codes if needed.
 * Rules set with 403 and 410 status codes are handled by applying the HTTP status code and render the default WordPress `wp_die` screen with an optional message.
 * Rules set with a 404 status code will apply the status code and render the 404 template.
+* Browsers heavily cache 301 (permanently moved) redirects. It's recommended to test your permanent redirects using the 302 (temporarily moved) status code before changing them to 301 permanently moved.
+
+=== Developer Documentation ===
+
+Safe Redirect Manager includes a number of actions and filters developers can make use of. These are documented on the [Safe Redirect Manager developer documentation](http://10up.github.io/safe-redirect-manager/) micro-site.
 
 == Changelog ==
 

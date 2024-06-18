@@ -2,7 +2,7 @@
 Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, VentureBeat, jeffpaul
 Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects, redirects
 Tested up to:      6.5
-Stable tag:        2.1.1
+Stable tag:        2.2.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -2,7 +2,7 @@
 Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, VentureBeat, jeffpaul
 Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects, redirects
 Tested up to:      6.5
-Stable tag:        2.2.0
+Stable tag:        2.1.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,7 +56,7 @@ Safe Redirect Manager includes a number of actions and filters developers can ma
 
 == Changelog ==
 
-= 2.2.0 - 2024-06-19 =
+= 2.1.2 - 2024-06-19 =
 * **Added:** Provide example for modifying the default redirect status code (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@jeffpaul](https://github.com/jeffpaul), [@JosVelasco](https://github.com/JosVelasco), [@dkotter](https://github.com/dkotter) via [#365](https://github.com/10up/safe-redirect-manager/pull/365)).
 * **Added:** "Testing" section in the "CONTRIBUTING.md" file (props [@kmgalanakis](https://github.com/kmgalanakis), [@jeffpaul](https://github.com/jeffpaul) via [#379](https://github.com/10up/safe-redirect-manager/pull/379)).
 * **Changed:** Improved reference to the postmeta table for better WordPress compatibility (props [@ogorzalka](https://github.com/ogorzalka), [@Sidsector9](https://github.com/Sidsector9) via [#361](https://github.com/10up/safe-redirect-manager/pull/361)).

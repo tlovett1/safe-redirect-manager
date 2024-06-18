@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [2.2.0] - 2024-06-19
+
+### Added
+- Provide example for modifying the default redirect status code (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@jeffpaul](https://github.com/jeffpaul), [@JosVelasco](https://github.com/JosVelasco), [@dkotter](https://github.com/dkotter) via [#365](https://github.com/10up/safe-redirect-manager/pull/365)).
+- "Testing" section in the "CONTRIBUTING.md" file (props [@kmgalanakis](https://github.com/kmgalanakis), [@jeffpaul](https://github.com/jeffpaul) via [#379](https://github.com/10up/safe-redirect-manager/pull/379)).
+
+### Changed
+- Improved reference to the postmeta table for better WordPress compatibility (props [@ogorzalka](https://github.com/ogorzalka), [@Sidsector9](https://github.com/Sidsector9) via [#361](https://github.com/10up/safe-redirect-manager/pull/361)).
+- Clean up NPM dependencies and update node to v20 (props [@Sidsector9](https://github.com/Sidsector9), [@dkotter](https://github.com/dkotter) via [#363](https://github.com/10up/safe-redirect-manager/pull/363)).
+- Warning message to error message after loops are detected (props [@aaemnnosttv](https://github.com/aaemnnosttv), [@Sidsector9](https://github.com/Sidsector9), [@BhargavBhandari90](https://github.com/BhargavBhandari90) via [#368](https://github.com/10up/safe-redirect-manager/pull/368)).
+- Disabled auto sync pull requests with target branch (props [@iamdharmesh](https://github.com/iamdharmesh), [@jeffpaul](https://github.com/jeffpaul) via [#371](https://github.com/10up/safe-redirect-manager/pull/371)).
+- Replaced [lee-dohm/no-response](https://github.com/lee-dohm/no-response) with [actions/stale](https://github.com/actions/stale) to help with closing no-response/stale issues (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#373](https://github.com/10up/safe-redirect-manager/pull/373)).
+- Upgrade the `download-artifact` from v3 to v4 (props [@iamdharmesh](https://github.com/iamdharmesh), [@jeffpaul](https://github.com/jeffpaul) via [#372](https://github.com/10up/safe-redirect-manager/pull/372)).
+- Bump WordPress "tested up to" version 6.5 (props [@sudip-md](https://github.com/sudip-md), [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#376](https://github.com/10up/safe-redirect-manager/pull/376)).
+- Bump WordPress minimum from 5.7 to 6.3 (props [@sudip-md](https://github.com/sudip-md), [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#376](https://github.com/10up/safe-redirect-manager/pull/376)).
+- URL validation check on "input" event for "Redirect From" field (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@BhargavBhandari90](https://github.com/BhargavBhandari90), [@Sidsector9](https://github.com/Sidsector9) via [#369](https://github.com/10up/safe-redirect-manager/pull/369)).
+
+### Fixed
+- PHP warning when running the "wp safe-redirect-manager list" CLI command (props [@planetahuevo](https://github.com/planetahuevo), [@kmgalanakis](https://github.com/kmgalanakis), [@dkotter](https://github.com/dkotter) via [#378](https://github.com/10up/safe-redirect-manager/pull/378)).
+
 ## [2.1.1] - 2024-01-08
 ### Added
 - Support for the WordPress.org plugin preview (props [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#357](https://github.com/10up/safe-redirect-manager/pull/357)).
@@ -321,6 +341,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Plugin released
 
 [Unreleased]: https://github.com/10up/safe-redirect-manager/compare/trunk...develop
+[2.2.0]: https://github.com/10up/safe-redirect-manager/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/10up/safe-redirect-manager/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/10up/safe-redirect-manager/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/10up/safe-redirect-manager/compare/2.0.0...2.0.1

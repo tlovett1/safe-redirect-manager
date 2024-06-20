@@ -241,8 +241,8 @@ class SRM_Redirect {
 				 * @param {string} $redirect_url Final URL to redirect to.
 				 * @returns {string} Final URL to redirect to.
 				 */
-				$filterd_redirect_to   = apply_filters( 'srm_redirect_to', $redirect_to );
-				$sanitized_redirect_to = esc_url_raw( $filterd_redirect_to );
+				$filtered_redirect_to  = apply_filters( 'srm_redirect_to', $redirect_to );
+				$sanitized_redirect_to = esc_url_raw( $filtered_redirect_to );
 
 				return [
 					'redirect_to'  => $sanitized_redirect_to,

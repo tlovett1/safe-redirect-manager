@@ -11,7 +11,7 @@
 class SRM_Post_Type {
 
 	/**
-	 * Status code lables for reuse
+	 * Status code labels for reuse
 	 *
 	 * @var array
 	 */

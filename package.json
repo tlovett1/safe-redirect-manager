@@ -34,6 +34,7 @@
     "jsdoc": "^4.0.3",
     "mochawesome-json-to-md": "^0.7.2",
     "node-wp-i18n": "^1.2.7",
-    "wp-hookdoc": "^0.2.0"
+    "wp-hookdoc": "^0.2.0",
+    "taffydb": "2.7.3"
   }
 }

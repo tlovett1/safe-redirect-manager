@@ -1,6 +1,6 @@
 === Safe Redirect Manager ===
-Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, VentureBeat, jeffpaul
-Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects, redirects
+Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, jeffpaul
+Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects
 Tested up to:      6.5
 Stable tag:        2.1.2
 License:           GPLv2 or later

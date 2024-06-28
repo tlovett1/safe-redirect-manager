@@ -799,9 +799,9 @@ class SRM_Post_Type {
 	 */
 	public function load_resources() {
 		if ( 'redirect_rule' === get_post_type() ) {
-			wp_enqueue_style( 'redirectjs', plugin_dir_url( __FILE__ ) . '../../assets/css/redirect.css', array(), SRM_VERSION );
-			wp_enqueue_script( 'redirectjs', plugin_dir_url( __FILE__ ) . '../../assets/js/redirect.js', array( 'jquery' ), SRM_VERSION );
-			wp_enqueue_script( 'quick-bulk-editjs', plugin_dir_url( __FILE__ ) . '../../assets/js/quick-bulk-edit.js', array( 'jquery', 'inline-edit-post' ), SRM_VERSION );
+			wp_enqueue_style( 'redirectjs', SRM_PLUGIN_URL . 'assets/css/redirect.css', array(), SRM_VERSION );
+			wp_enqueue_script( 'redirectjs', SRM_PLUGIN_URL . 'assets/js/redirect.js', array( 'jquery' ), SRM_VERSION );
+			wp_enqueue_script( 'quick-bulk-editjs', SRM_PLUGIN_URL . 'assets/js/quick-bulk-edit.js', array( 'jquery', 'inline-edit-post' ), SRM_VERSION );
 			wp_localize_script(
 				'redirectjs',
 				'redirectValidation',

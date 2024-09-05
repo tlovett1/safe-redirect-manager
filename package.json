@@ -1,7 +1,7 @@
 {
   "name": "safe-redirect-manager",
   "version": "2.1.2",
-  "description": "Easily and safely manage HTTP redirects.",
+  "description": "Safely manage your website's HTTP redirects.",
   "homepage": "https://github.com/10up/safe-redirect-manager",
   "bugs": {
     "url": "https://github.com/10up/safe-redirect-manager/issues"

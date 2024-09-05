@@ -1,7 +1,7 @@
 {
   "name": "10up/safe-redirect-manager",
   "type": "wordpress-plugin",
-  "description": "Easily and safely manage HTTP redirects.",
+  "description": "Safely manage your website's HTTP redirects.",
   "authors": [
     {
       "name": "Taylor Lovett",

@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [2.1.3] - 2024-09-XX
+## [2.2.0] - 2024-09-XX
 **Note that this version bumps the WordPress minimum from 6.3 to 6.4.**
 
 ### Added
@@ -356,7 +356,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Plugin released
 
 [Unreleased]: https://github.com/10up/safe-redirect-manager/compare/trunk...develop
-[2.1.3]: https://github.com/10up/safe-redirect-manager/compare/2.1.2...2.1.3
+[2.2.0]: https://github.com/10up/safe-redirect-manager/compare/2.1.2...2.2.0
 [2.1.2]: https://github.com/10up/safe-redirect-manager/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/10up/safe-redirect-manager/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/10up/safe-redirect-manager/compare/2.0.1...2.1.0

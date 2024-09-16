@@ -682,4 +682,96 @@ class SRMTestCore extends WP_UnitTestCase {
 		remove_filter('srm_match_query_params', '__return_true');
 	}
 
+	/**
+	 * Test that redirection to an external domain works with a regular expression without substitution
+	 *
+	 * @link https://github.com/10up/safe-redirect-manager/issues/269
+	 * @since 2.1.2
+	 */
+	public function testRedirectToExternalDomainWithNonSubstitutingRegex269() {
+		$_SERVER['REQUEST_URI'] = '/be/hhhh';
+		$redirected             = true;
+		$redirect_to            = 'http://xu-osp-plugins.local/404-regex';
+		$expected               = 'http://xu-osp-plugins.local/404-regex';
+
+		srm_create_redirect( '(go|be)\/h{0,}$', $redirect_to, 301, true );
+
+		add_action(
+			'srm_do_redirect',
+			function( $requested_path, $redirected_to, $status_code ) use ( &$redirect_to, &$redirected, &$expected ) {
+				if ( $redirected_to === $expected ) {
+					$redirected = true;
+				}
+			},
+			10,
+			3
+		);
+
+		SRM_Redirect::factory()->maybe_redirect();
+		$this->assertTrue( $redirected, 'Expected that a non-substituting regular expression would trigger a redirect to http://xu-osp-plugins.local/404-regex, but instead redirected to ' . $redirect_to );
+	}
+
+	/**
+	 * Test that redirection to an external domain works with a regular expression with substitution
+	 *
+	 * @link https://github.com/10up/safe-redirect-manager/issues/380
+	 * @since 2.2.0
+	 */
+	public function testRedirectToExternalDomainWithSubstitutingRegex380() {
+		$_SERVER['REQUEST_URI'] = '/test/1234';
+		$redirected             = true;
+		$redirect_from          = '/test/(.*)';
+		$redirect_to            = 'http://example.org/$1';
+		$expected               = 'http://example.org/1234';
+
+		srm_create_redirect( $redirect_from, $redirect_to, 301, true );
+
+		add_action(
+			'srm_do_redirect',
+			function( $requested_path, $redirected_to, $status_code ) use ( &$redirect_to, &$redirected, &$expected ) {
+				if ( $redirected_to === $expected ) {
+					$redirected = true;
+				} else {
+					$redirect_to = $redirected_to;
+				}
+			},
+			10,
+			3
+		);
+
+		SRM_Redirect::factory()->maybe_redirect();
+		$this->assertTrue( $redirected, 'Expected that a substituting regular expression would trigger a redirect to http://example.org/1234, but instead redirected to ' . $redirect_to );
+	}
+
+	/**
+	 * Test that redirection to a local URL works with a regular expression with substitution
+	 *
+	 * @link https://github.com/10up/safe-redirect-manager/issues/380
+	 * @since 2.2.0
+	 */
+	public function testRedirectToPathWithSubstitutingRegex380() {
+		$_SERVER['REQUEST_URI'] = '/test/1234';
+		$redirected             = true;
+		$redirect_from          = '/test/(.*)';
+		$redirect_to            = '/result/$1';
+		$expected               = '/result/1234';
+
+		srm_create_redirect( $redirect_from, $redirect_to, 301, true );
+
+		add_action(
+			'srm_do_redirect',
+			function( $requested_path, $redirected_to, $status_code ) use ( &$redirect_to, &$redirected, &$expected ) {
+				if ( $redirected_to === $expected ) {
+					$redirected = true;
+				} else {
+					$redirect_to = $redirected_to;
+				}
+			},
+			10,
+			3
+		);
+
+		SRM_Redirect::factory()->maybe_redirect();
+		$this->assertTrue( $redirected, 'Expected that a substituting regular expression would trigger a redirect to /result/1234, but instead redirected to ' . $redirect_to );
+	}
 }

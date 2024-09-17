@@ -698,7 +698,7 @@ class SRMTestCore extends WP_UnitTestCase {
 		$expected_redirect = 'http://xu-osp-plugins.local/404-regex';
 		$expected_status   = 301;
 
-		$actual_request = '';
+		$actual_request  = '';
 		$actual_redirect = '';
 		$actual_status   = 0;
 
@@ -707,9 +707,9 @@ class SRMTestCore extends WP_UnitTestCase {
 		add_action(
 			'srm_do_redirect',
 			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
-				$actual_request = $requested_path;
+				$actual_request  = $requested_path;
 				$actual_redirect = $redirected_to;
-				$actual_status = $status_code;
+				$actual_status   = $status_code;
 			},
 			10,
 			3
@@ -737,7 +737,7 @@ class SRMTestCore extends WP_UnitTestCase {
 		$expected_redirect = 'http://example.org/1234';
 		$expected_status   = 301;
 
-		$actual_request = '';
+		$actual_request  = '';
 		$actual_redirect = '';
 		$actual_status   = 0;
 
@@ -746,9 +746,9 @@ class SRMTestCore extends WP_UnitTestCase {
 		add_action(
 			'srm_do_redirect',
 			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
-				$actual_request = $requested_path;
+				$actual_request  = $requested_path;
 				$actual_redirect = $redirected_to;
-				$actual_status = $status_code;
+				$actual_status   = $status_code;
 			},
 			10,
 			3
@@ -776,7 +776,7 @@ class SRMTestCore extends WP_UnitTestCase {
 		$expected_redirect = '/result/1234';
 		$expected_status   = 301;
 
-		$actual_request = '';
+		$actual_request  = '';
 		$actual_redirect = '';
 		$actual_status   = 0;
 
@@ -785,9 +785,9 @@ class SRMTestCore extends WP_UnitTestCase {
 		add_action(
 			'srm_do_redirect',
 			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
-				$actual_request = $requested_path;
+				$actual_request  = $requested_path;
 				$actual_redirect = $redirected_to;
-				$actual_status = $status_code;
+				$actual_status   = $status_code;
 			},
 			10,
 			3

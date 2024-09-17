@@ -59,7 +59,7 @@ Safe Redirect Manager includes a number of actions and filters developers can ma
 1. List of Redirect rules under Tools > Safe Redirect Manager
 2. Edit view of a Redirect rule
 3. Bulk Edit view of multiple Redirect rules
-3. Bulk Edit to enable Force HTTPs
+4. Bulk Edit to enable Force HTTPs
 
 == Changelog ==
 

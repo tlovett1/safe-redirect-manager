@@ -690,25 +690,35 @@ class SRMTestCore extends WP_UnitTestCase {
 	 */
 	public function testRedirectToExternalDomainWithNonSubstitutingRegex269() {
 		$_SERVER['REQUEST_URI'] = '/be/hhhh';
-		$redirected             = true;
+		$redirect_from          = '(go|be)\/h{0,}$';
 		$redirect_to            = 'http://xu-osp-plugins.local/404-regex';
-		$expected               = 'http://xu-osp-plugins.local/404-regex';
+		$status                 = 301;
+		$use_regex              = true;
 
-		srm_create_redirect( '(go|be)\/h{0,}$', $redirect_to, 301, true );
+		$expected_redirect = 'http://xu-osp-plugins.local/404-regex';
+		$expected_status   = 301;
+
+		$actual_request = '';
+		$actual_redirect = '';
+		$actual_status   = 0;
+
+		srm_create_redirect( $redirect_from, $redirect_to, $status, $use_regex );
 
 		add_action(
 			'srm_do_redirect',
-			function( $requested_path, $redirected_to, $status_code ) use ( &$redirect_to, &$redirected, &$expected ) {
-				if ( $redirected_to === $expected ) {
-					$redirected = true;
-				}
+			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
+				$actual_request = $requested_path;
+				$actual_redirect = $redirected_to;
+				$actual_status = $status_code;
 			},
 			10,
 			3
 		);
 
 		SRM_Redirect::factory()->maybe_redirect();
-		$this->assertTrue( $redirected, 'Expected that a non-substituting regular expression would trigger a redirect to http://xu-osp-plugins.local/404-regex, but instead redirected to ' . $redirect_to );
+		$this->assertSame( $_SERVER['REQUEST_URI'], $actual_request, 'The requested path does not meet the expectation' );
+		$this->assertSame( $expected_redirect, $actual_redirect, 'The redirect destination does not meet the expectation' );
+		$this->assertSame( $expected_status, $actual_status, 'The redirect status does npt meet the expectation.' );
 	}
 
 	/**
@@ -719,28 +729,35 @@ class SRMTestCore extends WP_UnitTestCase {
 	 */
 	public function testRedirectToExternalDomainWithSubstitutingRegex380() {
 		$_SERVER['REQUEST_URI'] = '/test/1234';
-		$redirected             = true;
 		$redirect_from          = '/test/(.*)';
 		$redirect_to            = 'http://example.org/$1';
-		$expected               = 'http://example.org/1234';
+		$status                 = 301;
+		$use_regex              = true;
 
-		srm_create_redirect( $redirect_from, $redirect_to, 301, true );
+		$expected_redirect = 'http://example.org/1234';
+		$expected_status   = 301;
+
+		$actual_request = '';
+		$actual_redirect = '';
+		$actual_status   = 0;
+
+		srm_create_redirect( $redirect_from, $redirect_to, $status, $use_regex );
 
 		add_action(
 			'srm_do_redirect',
-			function( $requested_path, $redirected_to, $status_code ) use ( &$redirect_to, &$redirected, &$expected ) {
-				if ( $redirected_to === $expected ) {
-					$redirected = true;
-				} else {
-					$redirect_to = $redirected_to;
-				}
+			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
+				$actual_request = $requested_path;
+				$actual_redirect = $redirected_to;
+				$actual_status = $status_code;
 			},
 			10,
 			3
 		);
 
 		SRM_Redirect::factory()->maybe_redirect();
-		$this->assertTrue( $redirected, 'Expected that a substituting regular expression would trigger a redirect to http://example.org/1234, but instead redirected to ' . $redirect_to );
+		$this->assertSame( $_SERVER['REQUEST_URI'], $actual_request, 'The requested path does not meet the expectation' );
+		$this->assertSame( $expected_redirect, $actual_redirect, 'The redirect destination does not meet the expectation' );
+		$this->assertSame( $expected_status, $actual_status, 'The redirect status does npt meet the expectation.' );
 	}
 
 	/**
@@ -751,27 +768,34 @@ class SRMTestCore extends WP_UnitTestCase {
 	 */
 	public function testRedirectToPathWithSubstitutingRegex380() {
 		$_SERVER['REQUEST_URI'] = '/test/1234';
-		$redirected             = true;
 		$redirect_from          = '/test/(.*)';
 		$redirect_to            = '/result/$1';
-		$expected               = '/result/1234';
+		$status                 = 301;
+		$use_regex              = true;
 
-		srm_create_redirect( $redirect_from, $redirect_to, 301, true );
+		$expected_redirect = '/result/1234';
+		$expected_status   = 301;
+
+		$actual_request = '';
+		$actual_redirect = '';
+		$actual_status   = 0;
+
+		srm_create_redirect( $redirect_from, $redirect_to, $status, $use_regex );
 
 		add_action(
 			'srm_do_redirect',
-			function( $requested_path, $redirected_to, $status_code ) use ( &$redirect_to, &$redirected, &$expected ) {
-				if ( $redirected_to === $expected ) {
-					$redirected = true;
-				} else {
-					$redirect_to = $redirected_to;
-				}
+			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
+				$actual_request = $requested_path;
+				$actual_redirect = $redirected_to;
+				$actual_status = $status_code;
 			},
 			10,
 			3
 		);
 
 		SRM_Redirect::factory()->maybe_redirect();
-		$this->assertTrue( $redirected, 'Expected that a substituting regular expression would trigger a redirect to /result/1234, but instead redirected to ' . $redirect_to );
+		$this->assertSame( $_SERVER['REQUEST_URI'], $actual_request, 'The requested path does not meet the expectation' );
+		$this->assertSame( $expected_redirect, $actual_redirect, 'The redirect destination does not meet the expectation' );
+		$this->assertSame( $expected_status, $actual_status, 'The redirect status does npt meet the expectation.' );
 	}
 }

@@ -682,4 +682,120 @@ class SRMTestCore extends WP_UnitTestCase {
 		remove_filter('srm_match_query_params', '__return_true');
 	}
 
+	/**
+	 * Test that redirection to an external domain works with a regular expression without substitution
+	 *
+	 * @link https://github.com/10up/safe-redirect-manager/issues/269
+	 * @since 2.1.2
+	 */
+	public function testRedirectToExternalDomainWithNonSubstitutingRegex269() {
+		$_SERVER['REQUEST_URI'] = '/be/hhhh';
+		$redirect_from          = '(go|be)\/h{0,}$';
+		$redirect_to            = 'http://xu-osp-plugins.local/404-regex';
+		$status                 = 301;
+		$use_regex              = true;
+
+		$expected_redirect = 'http://xu-osp-plugins.local/404-regex';
+		$expected_status   = 301;
+
+		$actual_request  = '';
+		$actual_redirect = '';
+		$actual_status   = 0;
+
+		srm_create_redirect( $redirect_from, $redirect_to, $status, $use_regex );
+
+		add_action(
+			'srm_do_redirect',
+			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
+				$actual_request  = $requested_path;
+				$actual_redirect = $redirected_to;
+				$actual_status   = $status_code;
+			},
+			10,
+			3
+		);
+
+		SRM_Redirect::factory()->maybe_redirect();
+		$this->assertSame( $_SERVER['REQUEST_URI'], $actual_request, 'The requested path does not meet the expectation' );
+		$this->assertSame( $expected_redirect, $actual_redirect, 'The redirect destination does not meet the expectation' );
+		$this->assertSame( $expected_status, $actual_status, 'The redirect status does npt meet the expectation.' );
+	}
+
+	/**
+	 * Test that redirection to an external domain works with a regular expression with substitution
+	 *
+	 * @link https://github.com/10up/safe-redirect-manager/issues/380
+	 * @since 2.2.0
+	 */
+	public function testRedirectToExternalDomainWithSubstitutingRegex380() {
+		$_SERVER['REQUEST_URI'] = '/test/1234';
+		$redirect_from          = '/test/(.*)';
+		$redirect_to            = 'http://example.org/$1';
+		$status                 = 301;
+		$use_regex              = true;
+
+		$expected_redirect = 'http://example.org/1234';
+		$expected_status   = 301;
+
+		$actual_request  = '';
+		$actual_redirect = '';
+		$actual_status   = 0;
+
+		srm_create_redirect( $redirect_from, $redirect_to, $status, $use_regex );
+
+		add_action(
+			'srm_do_redirect',
+			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
+				$actual_request  = $requested_path;
+				$actual_redirect = $redirected_to;
+				$actual_status   = $status_code;
+			},
+			10,
+			3
+		);
+
+		SRM_Redirect::factory()->maybe_redirect();
+		$this->assertSame( $_SERVER['REQUEST_URI'], $actual_request, 'The requested path does not meet the expectation' );
+		$this->assertSame( $expected_redirect, $actual_redirect, 'The redirect destination does not meet the expectation' );
+		$this->assertSame( $expected_status, $actual_status, 'The redirect status does npt meet the expectation.' );
+	}
+
+	/**
+	 * Test that redirection to a local URL works with a regular expression with substitution
+	 *
+	 * @link https://github.com/10up/safe-redirect-manager/issues/380
+	 * @since 2.2.0
+	 */
+	public function testRedirectToPathWithSubstitutingRegex380() {
+		$_SERVER['REQUEST_URI'] = '/test/1234';
+		$redirect_from          = '/test/(.*)';
+		$redirect_to            = '/result/$1';
+		$status                 = 301;
+		$use_regex              = true;
+
+		$expected_redirect = '/result/1234';
+		$expected_status   = 301;
+
+		$actual_request  = '';
+		$actual_redirect = '';
+		$actual_status   = 0;
+
+		srm_create_redirect( $redirect_from, $redirect_to, $status, $use_regex );
+
+		add_action(
+			'srm_do_redirect',
+			function( $requested_path, $redirected_to, $status_code ) use ( &$actual_request, &$actual_redirect, &$actual_status ) {
+				$actual_request  = $requested_path;
+				$actual_redirect = $redirected_to;
+				$actual_status   = $status_code;
+			},
+			10,
+			3
+		);
+
+		SRM_Redirect::factory()->maybe_redirect();
+		$this->assertSame( $_SERVER['REQUEST_URI'], $actual_request, 'The requested path does not meet the expectation' );
+		$this->assertSame( $expected_redirect, $actual_redirect, 'The redirect destination does not meet the expectation' );
+		$this->assertSame( $expected_status, $actual_status, 'The redirect status does npt meet the expectation.' );
+	}
 }

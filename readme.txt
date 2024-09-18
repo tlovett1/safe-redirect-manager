@@ -54,6 +54,13 @@ This should be a path (i.e. `/test`) or a URL (i.e. `http://example.com/wp/test`
 
 Safe Redirect Manager includes a number of actions and filters developers can make use of. These are documented on the [Safe Redirect Manager developer documentation](http://10up.github.io/safe-redirect-manager/) micro-site.
 
+== Screenshots ==
+
+1. List of Redirect rules under Tools > Safe Redirect Manager
+2. Edit view of a Redirect rule
+3. Bulk Edit view of multiple Redirect rules
+4. Bulk Edit to enable Force HTTPs
+
 == Changelog ==
 
 = 2.1.2 - 2024-06-19 =

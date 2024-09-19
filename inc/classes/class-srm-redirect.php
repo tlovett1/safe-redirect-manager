@@ -176,8 +176,10 @@ class SRM_Redirect {
 
 			// check if requested path is the same as the redirect from path
 			if ( $enable_regex ) {
+				// for regexes, check whether the requested path matches the $redirect_from regular expression
 				$match_query_params = false;
 				$matched_path       = preg_match( '@' . $redirect_from . '@' . $regex_flag, $requested_path );
+				// and then return the matching path
 			} else {
 				if ( $case_insensitive ) {
 					$redirect_from = strtolower( $redirect_from );
@@ -207,6 +209,8 @@ class SRM_Redirect {
 				}
 			}
 
+			// If the requested path matches a redirect rule...
+			// this variable is not used after this boolean.
 			if ( $matched_path ) {
 				/**
 				 * Whitelist redirect host
@@ -223,9 +227,14 @@ class SRM_Redirect {
 				}
 
 				// Allow for regex replacement in $redirect_to
-				if ( $enable_regex && ! filter_var( $redirect_to, FILTER_VALIDATE_URL ) ) {
+				if ( $enable_regex ) {
 					$redirect_to = preg_replace( '@' . $redirect_from . '@' . $regex_flag, $redirect_to, $requested_path );
-					$redirect_to = '/' . ltrim( $redirect_to, '/' );
+
+					// If $redirect_to does not look like a valid URL,
+					// assume that it needs to be turned into a path relative to root with a leading slash.
+					if ( ! filter_var( $redirect_to, FILTER_VALIDATE_URL ) ) {
+						$redirect_to = '/' . ltrim( $redirect_to, '/' );
+					}
 				}
 
 				// re-add the query params if they've not already been added by the wildcard
@@ -241,8 +250,8 @@ class SRM_Redirect {
 				 * @param {string} $redirect_url Final URL to redirect to.
 				 * @returns {string} Final URL to redirect to.
 				 */
-				$filterd_redirect_to   = apply_filters( 'srm_redirect_to', $redirect_to );
-				$sanitized_redirect_to = esc_url_raw( $filterd_redirect_to );
+				$filtered_redirect_to  = apply_filters( 'srm_redirect_to', $redirect_to );
+				$sanitized_redirect_to = esc_url_raw( $filtered_redirect_to );
 
 				return [
 					'redirect_to'  => $sanitized_redirect_to,

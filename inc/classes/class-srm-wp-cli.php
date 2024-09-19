@@ -337,7 +337,7 @@ class SRM_WP_CLI extends WP_CLI_Command {
 
 		if ( file_exists( $file_name ) ) {
 			WP_CLI::warning( sprintf( 'File already exists. The following file will be rewritten %s', $file_name ) );
-			WP_CLI::confirm( 'Proceed with rewritting the existing file?' );
+			WP_CLI::confirm( 'Proceed with rewriting the existing file?' );
 		}
 
 		$file_resource = fopen( $file_name, 'w' ); //phpcs:ignore

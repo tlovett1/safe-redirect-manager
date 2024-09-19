@@ -124,5 +124,5 @@ For the changelog of earlier versions, please refer to [the changelog on github.
 
 == Upgrade Notice ==
 
-= 2.1.3 =
+= 2.2.0 =
 This version bumps the WordPress minimum from 6.3 to 6.4.

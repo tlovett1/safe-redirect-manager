@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [2.2.0] - 2024-09-XX
+## [2.2.0] - 2024-09-19
 **Note that this version bumps the WordPress minimum from 6.3 to 6.4.**
 
 ### Added

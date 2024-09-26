@@ -22,7 +22,7 @@ class SRM_Post_Type {
 	 *
 	 * @var string
 	 */
-	private $redirect_search_term;
+	private $redirect_search_term = false;
 
 	/**
 	 * Sets up redirect manager
@@ -144,7 +144,8 @@ class SRM_Post_Type {
 			$search_term_like = '%' . $wpdb->esc_like( $search_term ) . '%';
 
 			$query->set( 's', $this->redirect_search_term );
-			unset( $this->redirect_search_term );
+			// Restore search term to a false value to prevent modifying the query again.
+			$this->redirect_search_term = false;
 
 			$clauses['distinct'] = 'DISTINCT';
 

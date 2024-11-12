@@ -602,8 +602,8 @@ class SRM_Post_Type {
 		$redirect_labels = array(
 			'name'               => esc_html_x( 'Safe Redirect Manager', 'post type general name', 'safe-redirect-manager' ),
 			'singular_name'      => esc_html_x( 'Redirect', 'post type singular name', 'safe-redirect-manager' ),
-			'add_new'            => _x( 'Create Redirect Rule', 'redirect rule', 'safe-redirect-manager' ),
-			'add_new_item'       => esc_html__( 'Safe Redirect Manager', 'safe-redirect-manager' ),
+			'add_new'            => esc_html_x( 'Create Redirect Rule', 'redirect rule', 'safe-redirect-manager' ),
+			'add_new_item'       => esc_html__( 'Create Redirect Rule', 'safe-redirect-manager' ),
 			'edit_item'          => esc_html__( 'Edit Redirect Rule', 'safe-redirect-manager' ),
 			'new_item'           => esc_html__( 'New Redirect Rule', 'safe-redirect-manager' ),
 			'all_items'          => esc_html__( 'Safe Redirect Manager', 'safe-redirect-manager' ),

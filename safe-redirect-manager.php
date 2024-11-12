@@ -4,7 +4,7 @@
  * Plugin URI:        https://wordpress.org/plugins/safe-redirect-manager
  * Description:       Easily and safely manage HTTP redirects.
  * Version:           2.2.0
- * Requires at least: 6.4
+ * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            10up
  * Author URI:        https://10up.com

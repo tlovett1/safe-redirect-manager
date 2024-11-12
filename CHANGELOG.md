@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [2.2.1] - 2024-11-13
+**Note that this version bumps the WordPress minimum from 6.4 to 6.5.**
+
+### Changed
+- Bump WordPress "tested up to" version 6.7 (props [@sudip-md](https://github.com/sudip-md), [@jeffpaul](https://github.com/jeffpaul), [@mehidi258](https://github.com/mehidi258) via [#403](https://github.com/10up/safe-redirect-manager/pull/403)).
+- Bump WordPress minimum supported version to 6.5 (props [@sudip-md](https://github.com/sudip-md), [@jeffpaul](https://github.com/jeffpaul), [@mehidi258](https://github.com/mehidi258) via [#403](https://github.com/10up/safe-redirect-manager/pull/403)).
+
+### Fixed
+- Prevent undefined property warnings when searching redirects (props [@chermant](https://github.com/chermant), [@Sidsector9](https://github.com/Sidsector9), [@peterwilsoncc](https://github.com/peterwilsoncc) via [#400](https://github.com/10up/safe-redirect-manager/pull/400)).
+- Ensure the add new button shows proper text (props [[@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#404](https://github.com/10up/safe-redirect-manager/pull/404)).
+
+### Developer
+- Add WordPress and PHP minimum badges (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#401](https://github.com/10up/safe-redirect-manager/pull/401)).
+
 ## [2.2.0] - 2024-09-19
 **Note that this version bumps the WordPress minimum from 6.3 to 6.4.**
 
@@ -360,6 +374,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Plugin released
 
 [Unreleased]: https://github.com/10up/safe-redirect-manager/compare/trunk...develop
+[2.2.1]: https://github.com/10up/safe-redirect-manager/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/10up/safe-redirect-manager/compare/2.1.2...2.2.0
 [2.1.2]: https://github.com/10up/safe-redirect-manager/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/10up/safe-redirect-manager/compare/2.1.0...2.1.1

@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ### Fixed
 - Prevent undefined property warnings when searching redirects (props [@chermant](https://github.com/chermant), [@Sidsector9](https://github.com/Sidsector9), [@peterwilsoncc](https://github.com/peterwilsoncc) via [#400](https://github.com/10up/safe-redirect-manager/pull/400)).
-- Ensure the add new button shows proper text (props [[@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#404](https://github.com/10up/safe-redirect-manager/pull/404)).
+- Ensure the add new button shows proper text (props [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#404](https://github.com/10up/safe-redirect-manager/pull/404)).
 
 ### Developer
 - Add WordPress and PHP minimum badges (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#401](https://github.com/10up/safe-redirect-manager/pull/401)).

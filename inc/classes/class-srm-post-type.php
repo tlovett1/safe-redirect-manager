@@ -22,7 +22,7 @@ class SRM_Post_Type {
 	 *
 	 * @var string
 	 */
-	private $redirect_search_term;
+	private $redirect_search_term = false;
 
 	/**
 	 * Sets up redirect manager
@@ -144,7 +144,8 @@ class SRM_Post_Type {
 			$search_term_like = '%' . $wpdb->esc_like( $search_term ) . '%';
 
 			$query->set( 's', $this->redirect_search_term );
-			unset( $this->redirect_search_term );
+			// Restore search term to a false value to prevent modifying the query again.
+			$this->redirect_search_term = false;
 
 			$clauses['distinct'] = 'DISTINCT';
 
@@ -601,8 +602,8 @@ class SRM_Post_Type {
 		$redirect_labels = array(
 			'name'               => esc_html_x( 'Safe Redirect Manager', 'post type general name', 'safe-redirect-manager' ),
 			'singular_name'      => esc_html_x( 'Redirect', 'post type singular name', 'safe-redirect-manager' ),
-			'add_new'            => _x( 'Create Redirect Rule', 'redirect rule', 'safe-redirect-manager' ),
-			'add_new_item'       => esc_html__( 'Safe Redirect Manager', 'safe-redirect-manager' ),
+			'add_new'            => esc_html_x( 'Create Redirect Rule', 'redirect rule', 'safe-redirect-manager' ),
+			'add_new_item'       => esc_html__( 'Create Redirect Rule', 'safe-redirect-manager' ),
 			'edit_item'          => esc_html__( 'Edit Redirect Rule', 'safe-redirect-manager' ),
 			'new_item'           => esc_html__( 'New Redirect Rule', 'safe-redirect-manager' ),
 			'all_items'          => esc_html__( 'Safe Redirect Manager', 'safe-redirect-manager' ),

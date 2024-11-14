@@ -426,7 +426,7 @@ class SRM_Post_Type {
 	}
 
 	/**
-	 * Add custom fileds to the qucik edit screen.
+	 * Add custom fields to the quick edit screen.
 	 *
 	 * @param string $column_name Name of the column to edit.
 	 * @param string $post_type   The post type slug, or current screen name if this is a taxonomy list table.

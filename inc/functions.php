@@ -232,11 +232,12 @@ function srm_check_for_possible_redirect_loops() {
  * @param string $post_status Post status
  * @param int    $menu_order Menu order
  * @param string $notes Notes
+ * @param int    $author_id Author ID
  * @since 1.8
  * @uses wp_insert_post, update_post_meta
  * @return int|WP_Error
  */
-function srm_create_redirect( $redirect_from, $redirect_to, $status_code = 302, $enable_regex = false, $post_status = 'publish', $menu_order = 0, $notes = '' ) {
+function srm_create_redirect( $redirect_from, $redirect_to, $status_code = 302, $enable_regex = false, $post_status = 'publish', $menu_order = 0, $notes = '', $author_id = 1 ) {
 	global $wpdb;
 
 	$sanitized_redirect_from = srm_sanitize_redirect_from( $redirect_from );
@@ -246,6 +247,7 @@ function srm_create_redirect( $redirect_from, $redirect_to, $status_code = 302, 
 	$sanitized_post_status   = sanitize_key( $post_status );
 	$sanitized_menu_order    = absint( $menu_order );
 	$sanitized_notes         = sanitize_text_field( $notes );
+	$sanitized_author_id     = absint( $author_id );
 
 	// check and make sure no parameters are empty or invalid after sanitation
 	if ( empty( $sanitized_redirect_from ) || empty( $sanitized_redirect_to ) ) {
@@ -291,9 +293,8 @@ function srm_create_redirect( $redirect_from, $redirect_to, $status_code = 302, 
 	$post_args = array(
 		'post_type'   => 'redirect_rule',
 		'post_status' => $sanitized_post_status,
-		'post_author' => 1,
+		'post_author' => $sanitized_author_id,
 		'menu_order'  => $sanitized_menu_order,
-
 	);
 
 	if ( $existing_redirect ) {
@@ -323,8 +324,6 @@ function srm_create_redirect( $redirect_from, $redirect_to, $status_code = 302, 
 
 	return $post_id;
 }
-
-
 
 /**
  * Sanitize redirect to path

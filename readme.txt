@@ -63,6 +63,11 @@ Safe Redirect Manager includes a number of actions and filters developers can ma
 
 == Changelog ==
 
+= 2.2.2 - 2025-02-05 =
+
+* **Added:** Add author ID as a new, optional argument to the `srm_create_redirect` function. If passed, will associate this author ID to the newly created redirect (props [@norcross](https://github.com/norcross), [@dkotter](https://github.com/dkotter) via [#408](https://github.com/10up/safe-redirect-manager/pull/408)).
+* **Fixed:** Fix a few typos (props [@szepeviktor](https://github.com/szepeviktor), [@jeffpaul](https://github.com/jeffpaul) via [#407](https://github.com/10up/safe-redirect-manager/pull/407)).
+
 = 2.2.1 - 2024-11-13 =
 
 * **Changed:** Bump WordPress "tested up to" version 6.7 (props [@sudip-md](https://github.com/sudip-md), [@jeffpaul](https://github.com/jeffpaul), [@mehidi258](https://github.com/mehidi258) via [#403](https://github.com/10up/safe-redirect-manager/pull/403)).

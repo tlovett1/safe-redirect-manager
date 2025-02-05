@@ -18,10 +18,10 @@ class SRM_WP_CLI extends WP_CLI_Command {
 	 * Available fields: 'ID', 'redirect_from', 'redirect_to', 'status_code', 'enable_regex', 'post_status'.
 	 *
 	 * [--field=<field>]
-	 * : Single field to dipslay, should be one of available fields.
+	 * : Single field to display, should be one of available fields.
 	 *
 	 * [--fields=<field1,field2>]
-	 * : Multiple fields to dipslay, should be a list of available fields.
+	 * : Multiple fields to display, should be a list of available fields.
 	 *
 	 * [--format=<format>]
 	 * : The command output format. Can be table, json, csv, yaml. Default to table.

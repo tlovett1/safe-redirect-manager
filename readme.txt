@@ -2,7 +2,7 @@
 Contributors:      10up, tlovett1, tollmanz, taylorde, jakemgold, danielbachhuber, jeffpaul
 Tags:              http redirects, redirect manager, url redirection, safe http redirection, multisite redirects
 Tested up to:      6.7
-Stable tag:        2.2.1
+Stable tag:        2.2.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,11 @@ Safe Redirect Manager includes a number of actions and filters developers can ma
 4. Bulk Edit to enable Force HTTPs
 
 == Changelog ==
+
+= 2.2.2 - 2025-02-05 =
+
+* **Added:** Add author ID as a new, optional argument to the `srm_create_redirect` function. If passed, will associate this author ID to the newly created redirect (props [@norcross](https://github.com/norcross), [@dkotter](https://github.com/dkotter) via [#408](https://github.com/10up/safe-redirect-manager/pull/408)).
+* **Fixed:** Fix a few typos (props [@szepeviktor](https://github.com/szepeviktor), [@jeffpaul](https://github.com/jeffpaul) via [#407](https://github.com/10up/safe-redirect-manager/pull/407)).
 
 = 2.2.1 - 2024-11-13 =
 
